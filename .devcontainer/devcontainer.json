@@ -1,0 +1,21 @@
+{
+	"name": "C++",
+	"build": {
+	  "dockerfile": "Dockerfile",
+	  "args": { 
+		"VARIANT": "ubuntu-22.04"
+	  }
+	},
+  
+	"image":"mcr.microsoft.com/devcontainers/cpp",
+  
+	"customizations": {
+	   "vscode": {
+		  "extensions": ["ms-vscode.cpptools", 
+			"ms-vscode.cmake-tools",
+			"ms-vscode-remote.remote-containers",
+			"ms-azuretools.vscode-docker"]
+		}
+	  }
+  }
+  
