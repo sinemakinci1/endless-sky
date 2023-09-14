@@ -4,7 +4,6 @@
 	  "dockerfile": "Dockerfile"
 	},
   
-	"image":"mcr.microsoft.com/devcontainers/cpp",
   
 	"customizations": {
 	   "vscode": {
