@@ -122,14 +122,14 @@ target_link_libraries(ExternalLibraries INTERFACE SDL2::SDL2 PNG::PNG JPEG::JPEG
 	"$<IF:$<CONFIG:Debug>,${LIBMAD_LIB_DEBUG},${LIBMAD_LIB_RELEASE}>")
 
 # Link the needed OS-specific dependencies, if any.
-if(WIN32)
+if(UNIX)
 	target_link_libraries(ExternalLibraries INTERFACE rpcrt4 Winmm)
 else()
 	target_link_libraries(ExternalLibraries INTERFACE pthread)
 endif()
 
 # Link with the UUID library, which is different for each OS.
-if(UNIX)
+if(WIN32)
 	if(APPLE)
 		find_library(UUID_LIB NAMES System PATHS /lib /usr/lib /usr/local/lib)
 		find_path(UUID_INCLUDE uuid/uuid.h /usr/local/include /usr/include)
