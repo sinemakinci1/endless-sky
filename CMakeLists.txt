@@ -13,6 +13,9 @@ cmake_dependent_option(ES_CREATE_BUNDLE "Create a Bundle instead of an executabl
 # Support Debug and Release configurations.
 set(CMAKE_CONFIGURATION_TYPES "Debug" "Release" CACHE STRING "" FORCE)
 
+# Set App Name
+set(ES_APP_NAME "EndlessSky")
+
 # Use C++11 without any compiler specific extensions.
 set(CMAKE_CXX_STANDARD 11 CACHE STRING "")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -218,11 +221,11 @@ if(APPLE AND ES_CREATE_BUNDLE)
 		XCODE_ATTRIBUTE_ASSETCATALOG_COMPILER_APPICON_NAME endless-sky)
 	set_target_properties(EndlessSky PROPERTIES OUTPUT_NAME "Endless Sky")
 elseif(WIN32)
-	add_executable(EndlessSky WIN32 source/main.cpp source/WinApp.rc)
-	set_target_properties(EndlessSky PROPERTIES OUTPUT_NAME "Endless Sky")
+    add_executable(${ES_APP_NAME} WIN32 source/main.cpp source/WinApp.rc)
+	set_target_properties(${ES_APP_NAME} PROPERTIES OUTPUT_NAME "Endless Sky")
 else()
-	add_executable(EndlessSky source/main.cpp)
-	set_target_properties(EndlessSky PROPERTIES OUTPUT_NAME "endless-sky")
+	add_executable(${ES_APP_NAME} source/main.cpp)
+	set_target_properties(${ES_APP_NAME} PROPERTIES OUTPUT_NAME "endless-sky")
 endif()
 
 # Link with the library dependencies.
